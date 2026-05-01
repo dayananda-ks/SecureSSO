@@ -9,7 +9,7 @@ This project demonstrates secure session management, external API integration, a
 
 ## 🚀 Live Demo
 You can view the running application here:
-*https://securesso-demo.herokuapp.com*
+*https://securesso-6byz.onrender.com*
 
 ---
 
@@ -69,7 +69,7 @@ flask run
 # OR
 python app.py
 ```
-The app will be available at `http://localhost:5000`.
+The app will be available at `https://securesso-6byz.onrender.com`.
 
 ---
 *Created to demonstrate robust OAuth pipelines and API integrations.*
