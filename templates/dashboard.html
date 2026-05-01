@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Profile Sidebar -->
+    <div class="col-md-4 mb-4">
+        <div class="card p-4 text-center">
+            <img src="{{ user.avatar_url }}" alt="Profile Image" class="profile-img mx-auto mb-3">
+            <h3>{{ user.name or user.login }}</h3>
+            <p class="text-muted">@{{ user.login }}</p>
+            <p>{{ user.bio or 'No bio provided.' }}</p>
+            
+            <div class="d-flex justify-content-around mt-3 mb-3">
+                <div>
+                    <h5>{{ user.followers }}</h5>
+                    <small class="text-muted">Followers</small>
+                </div>
+                <div>
+                    <h5>{{ user.following }}</h5>
+                    <small class="text-muted">Following</small>
+                </div>
+                <div>
+                    <h5>{{ user.public_repos }}</h5>
+                    <small class="text-muted">Repos</small>
+                </div>
+            </div>
+            <a href="{{ user.html_url }}" target="_blank" class="btn btn-outline-light mt-2">View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- Repositories Grid -->
+    <div class="col-md-8">
+        <h4 class="mb-3">Recent Repositories</h4>
+        <div class="row">
+            {% for repo in repos %}
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <a href="{{ repo.html_url }}" target="_blank" class="text-decoration-none text-light fw-bold">
+                            {{ repo.name }}
+                        </a>
+                        <span class="badge border border-secondary text-secondary rounded-pill">
+                            {{ repo.visibility }}
+                        </span>
+                    </div>
+                    <p class="text-muted small mb-3 flex-grow-1">
+                        {{ repo.description or 'No description available.' }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                        <span class="repo-language">
+                            <i class="fas fa-circle" style="color: #58a6ff; font-size: 0.6rem;"></i> 
+                            {{ repo.language or 'Markdown' }}
+                        </span>
+                        <span class="repo-language">
+                            <i class="far fa-star me-1"></i>{{ repo.stargazers_count }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center text-muted mt-5">
+                <p>No repositories found.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
