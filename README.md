@@ -9,7 +9,7 @@ This project demonstrates secure session management, external API integration, a
 
 ## 🚀 Live Demo
 You can view the running application here:
-**https://securesso-demo.herokuapp.com*
+*https://securesso-demo.herokuapp.com*
 
 ---
 
